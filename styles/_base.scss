@@ -1,3 +1,4 @@
+
 $cPrime: #add8e6;
 
 *{
@@ -10,13 +11,29 @@ html{
 }
 
 h1{
-  font-size: 3rem;
+  font-size: 2rem;
+
+  @include tb{
+    font-size: 3rem;
+  }
 }
 
 h3{
   font-size: 2rem;
+
+  @include pc{
+    font-size: 2.5rem;
+  }
 }
 
 p{
   font-size: 1.2rem;
+
+  @include tb{
+    font-size: 1.5rem;
+  }
+
+  @include pc{
+    font-size: 2rem;
+  }
 }

@@ -26,8 +26,8 @@ async function getItems(){
       const itemImg = document.createElement('img');
       itemImg.setAttribute('src', item.image);
 
-      const itemDesc = document.createElement('p');
-      itemDesc.textContent = item.description;
+      const itemTitle = document.createElement('p');
+      itemTitle.textContent = item.title;
 
       const itemPrice = document.createElement('h3');
       itemPrice.textContent = `C$${(item.price).toFixed(2)}`;
@@ -38,7 +38,7 @@ async function getItems(){
       itemContainer.classList.add('item-container');
 
       itemContainer.appendChild(itemImg);
-      itemContainer.appendChild(itemDesc);
+      itemContainer.appendChild(itemTitle);
       itemContainer.appendChild(itemPrice);
 
       const buyButton = document.createElement('button');
