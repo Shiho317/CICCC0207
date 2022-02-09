@@ -175,6 +175,14 @@ header{
 
 }
 
+.total-sec{
+  margin: 0 2rem;
+
+  @include pc{
+    margin: 0 20rem;
+  }
+}
+
 .item-details{
   display: flex;
   flex-direction: column;
@@ -202,27 +210,14 @@ header{
 }
 
 .amount-wrap{
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  
-  & p{
-    font-size: 1.5rem;
+  width: 5rem;
+  height: 3rem;
+  background-color: $cPrime;
 
-    @include pc{
-      font-size: 2rem;
-    }
-  }
-
-  & button{
-    background-color: $cPrime;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-
-    @include pc{
-      font-size: 2rem;
-    }
+  @include pc{
+    width: 7rem;
+    height: 4rem;
+    font-size: 1.6rem;
   }
 }
 

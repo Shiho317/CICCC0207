@@ -163,6 +163,12 @@ header {
       .cart-item-wrap img {
         width: 15rem; } }
 
+.total-sec {
+  margin: 0 2rem; }
+  @media screen and (min-width: 1024px) {
+    .total-sec {
+      margin: 0 20rem; } }
+
 .item-details {
   display: flex;
   flex-direction: column;
@@ -182,22 +188,14 @@ header {
         font-size: 2rem; } }
 
 .amount-wrap {
-  display: flex;
-  gap: 2rem;
-  align-items: center; }
-  .amount-wrap p {
-    font-size: 1.5rem; }
-    @media screen and (min-width: 1024px) {
-      .amount-wrap p {
-        font-size: 2rem; } }
-  .amount-wrap button {
-    background-color: #add8e6;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer; }
-    @media screen and (min-width: 1024px) {
-      .amount-wrap button {
-        font-size: 2rem; } }
+  width: 5rem;
+  height: 3rem;
+  background-color: #add8e6; }
+  @media screen and (min-width: 1024px) {
+    .amount-wrap {
+      width: 7rem;
+      height: 4rem;
+      font-size: 1.6rem; } }
 
 footer {
   width: 100%;
