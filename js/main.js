@@ -69,6 +69,7 @@ const len = cartItems.length;
 const noItem = document.querySelector('.no-item');
 let prices = [];
 let calcPrices = [];
+let deleteItemArr = [];
 
 async function addToCart(id){
   
@@ -80,10 +81,12 @@ async function addToCart(id){
   cartItems.push(targetItem);
 
     prices.push(targetItem.price);
+
       
     //create elements
     const cartItemWrap = document.createElement('div');
     cartItemWrap.classList.add('cart-item-wrap');
+    cartItemWrap.id = targetItem.id;
     cartWrap.appendChild(cartItemWrap);
 
     const totalWrap = document.querySelector('.total-wrap');
@@ -95,6 +98,12 @@ async function addToCart(id){
     const itemImg = document.createElement('img');
     itemImg.setAttribute('src', targetItem.image);
     cartItemWrap.appendChild(itemImg);
+
+    const trashWrap = document.createElement('i');
+    trashWrap.classList.add('fas');
+    trashWrap.classList.add('fa-trash-alt');
+    trashWrap.id = targetItem.id;
+    cartItemWrap.appendChild(trashWrap);
 
     const itemTitle = document.createElement('h3');
     itemTitle.textContent = targetItem.title;
@@ -139,6 +148,7 @@ async function addToCart(id){
     amount5.textContent = 5;
 
 
+
     //calc price in cart
     const calcPrice = () => {
       const total = Number(amountWrap.value) * Number(targetItem.price);
@@ -172,26 +182,46 @@ async function addToCart(id){
 
     //cart button num
     const cartBadge = document.querySelector('.fa-shopping-cart span')
-    cartBadge.textContent = cartItems.length
+    cartBadge.textContent = cartItems.length;
+    console.log(cartItems)
+
+    //delete item
+    const deleteBtns = document.querySelectorAll('.fa-trash-alt');
+
+    deleteBtns.forEach(deleteBtn => {
+      deleteBtn.addEventListener('click', () => {
+        cartWrap.removeChild(deleteBtn.parentElement);
+        unVaildBtn.textContent = 'Buy Now';
+        unVaildBtn.disabled = false;
+        unVaildBtn.style.backgroundColor = '#add8e6';
+        const index = cartItems.indexOf(targetItem);
+        cartItems.splice(index, 1);
+        cartBadge.textContent = cartItems.length;
+        totalWrap.textContent = (Number(totalWrap.textContent) - targetItem.price * targetItem.amount).toFixed(2);
+        targetItem.amount = 0;
+        const ii = prices.findIndex(i => i === targetItem.price)
+        prices.splice(ii, 1);
+      });
+    });
 
 }
-
-
 
 //cart modal
 
 const closeBtn = document.querySelector('.close-btn');
 const openBtn = document.querySelector('.fa-shopping-cart');
+const overlay = document.querySelector('#overlay')
 
 const openCart = () => {
-  cartWrap.style.top = '0';
+  overlay.style.top = '0';
 }
 
 openBtn.addEventListener('click', openCart);
 
 const closeCart = () => {
-  cartWrap.style.top = '-100%';
+  overlay.style.top = '-100%';
 }
 
 closeBtn.addEventListener('click', closeCart)
+
 

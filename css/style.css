@@ -121,16 +121,29 @@ header {
   .buyButton:hover {
     background-color: grey; }
 
-.cart {
+#overlay {
   position: absolute;
   top: -100%;
   right: 0;
-  width: 100%;
+  width: 100vw;
   height: 100%;
+  background-color: rgba(12, 12, 39, 0.5);
+  backdrop-filter: blur(4px);
+  transition: all 0.5s ease;
+  display: grid;
+  align-items: center; }
+
+.cart {
+  width: 100%;
+  height: 100vh;
   background-color: white;
   padding: 1rem;
-  transition: all 0.5s ease;
+  margin: 0 auto;
   overflow: scroll; }
+  @media screen and (min-width: 768px) {
+    .cart {
+      width: 80%;
+      height: 90%; } }
   .cart h1 {
     text-align: center;
     margin: 2rem; }
@@ -142,19 +155,26 @@ header {
   right: 3rem;
   font-size: 3rem;
   cursor: pointer; }
+  @media screen and (min-width: 768px) {
+    .close-btn {
+      right: 10rem; } }
   @media screen and (min-width: 1024px) {
     .close-btn {
+      right: 20rem;
       font-size: 4rem; } }
 
 .cart-item-wrap {
-  display: flex;
-  margin: 3rem 1rem; }
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 0.2fr;
+  margin: 3rem auto; }
+  @media screen and (min-width: 768px) {
+    .cart-item-wrap {
+      width: 60%; } }
   @media screen and (min-width: 1024px) {
     .cart-item-wrap {
       width: 60%;
-      display: grid;
-      align-items: center;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 0.5fr;
       margin: 8rem auto; } }
   .cart-item-wrap img {
     width: 8rem;
@@ -162,6 +182,11 @@ header {
     @media screen and (min-width: 1024px) {
       .cart-item-wrap img {
         width: 15rem; } }
+  .cart-item-wrap .fa-trash-alt {
+    font-size: 1.5rem; }
+    @media screen and (min-width: 768px) {
+      .cart-item-wrap .fa-trash-alt {
+        font-size: 2rem; } }
 
 .total-sec {
   margin: 0 2rem; }
