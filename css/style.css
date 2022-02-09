@@ -183,7 +183,8 @@ header {
       .cart-item-wrap img {
         width: 15rem; } }
   .cart-item-wrap .fa-trash-alt {
-    font-size: 1.5rem; }
+    font-size: 1.5rem;
+    cursor: pointer; }
     @media screen and (min-width: 768px) {
       .cart-item-wrap .fa-trash-alt {
         font-size: 2rem; } }

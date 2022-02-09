@@ -199,6 +199,7 @@ header{
 
   & .fa-trash-alt{
     font-size: 1.5rem;
+    cursor: pointer;
 
     @include tb{
       font-size: 2rem;

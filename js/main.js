@@ -69,7 +69,6 @@ const len = cartItems.length;
 const noItem = document.querySelector('.no-item');
 let prices = [];
 let calcPrices = [];
-let deleteItemArr = [];
 
 async function addToCart(id){
   
@@ -164,8 +163,8 @@ async function addToCart(id){
     console.log(subtotal.textContent)
     amountWrap.addEventListener('change', calcPrice)
 
-    const initTotal = prices.reduce((sum, acc) => {
-      return sum + acc
+    const initTotal = prices.reduce((acc, num) => {
+      return acc + num
     })
     
     totalWrap.textContent = initTotal;
